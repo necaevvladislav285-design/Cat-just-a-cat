@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Котоктудио · Студия котосъёмок</title>
+    <!-- Bootstrap 5 + Иконки (для красоты) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Наш скомпилированный SCSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Адаптивное меню навигации (Bootstrap) -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-camera-heart"></i> Котоктудио
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about"><i class="bi bi-info-circle"></i> О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery"><i class="bi bi-images"></i> Галерея</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#booking"><i class="bi bi-calendar-check"></i> Запись на съёмку</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="flex-grow-1">
+    <!-- Секция "О нас" (Grid / Flex используются через SCSS-миксины) -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <!-- Пример адаптивной Grid-разметки: слева текст, справа иконка/лого -->
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <h2 class="display-5 fw-bold mb-4">Мы фотографируем котиков</h2>
+                    <p class="lead">Добро пожаловать в «Котоктудио» — пространство, где чувствуют себя настоящими котиками!</p>
+                    <p>Тематические съёмки с профессиональным реквизитом, уютной атмосферой и лаской к каждой модели. Работаем с хвостатыми любого возраста и темперамента.</p>
+                    <div class="mt-4">
+                        <i class="bi bi-paw-fill text-primary me-2"></i> Более 500 довольных мурлык
+                        <br>
+                        <i class="bi bi-house-heart text-primary me-2"></i> Студия в центре города
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="about-icon p-4 bg-white rounded-4 shadow-sm">
+                        <i class="bi bi-camera-reels" style="font-size: 8rem; color: #b76e79;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея котиков (Flex + Grid, 3 изображения) -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center display-6 fw-bold mb-5"><i class="bi bi-grid-3x3-gap-fill"></i> Галерея</h2>
+            <!-- Это Grid на Bootstrap + кастомный SCSS класс -->
+            <div class="row g-4 gallery-grid">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://placecats.com/600/400?random=1" class="card-img-top gallery-img" alt="Рыжий кот в студии">
+                        <div class="card-body text-center">
+                            <p class="fw-bold mb-0">Рыжий император</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://placecats.com/600/401?random=2" class="card-img-top gallery-img" alt="Чёрный кот с гитарой">
+                        <div class="card-body text-center">
+                            <p class="fw-bold mb-0">Ночной музыкант</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://placecats.com/600/402?random=3" class="card-img-top gallery-img" alt="Белый котёнок">
+                        <div class="card-body text-center">
+                            <p class="fw-bold mb-0">Снежок в облаках</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма записи с валидацией и полями: Имя, Email, Имя котика -->
+    <section id="booking" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-6 fw-bold mb-4">Запись на съёмку</h2>
+            <p class="text-center text-muted mb-5">Заполните форму, и мы подберём удобное время для вашего пушистика</p>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="bookingForm" class="needs-validation" novalidate>
+                                <!-- Имя -->
+                                <div class="mb-4">
+                                    <label for="name" class="form-label">Ваше имя <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                        <input type="text" class="form-control" id="name" placeholder="Иван Иванов" required>
+                                    </div>
+                                    <div class="invalid-feedback">Пожалуйста, укажите ваше имя.</div>
+                                </div>
+                                <!-- Email -->
+                                <div class="mb-4">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" placeholder="meow@example.com" required>
+                                    </div>
+                                    <div class="invalid-feedback">Введите корректный адрес электронной почты.</div>
+                                </div>
+                                <!-- Имя котика -->
+                                <div class="mb-4">
+                                    <label for="catName" class="form-label">Имя котика <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-heart"></i></span>
+                                        <input type="text" class="form-control" id="catName" placeholder="Барсик" required>
+                                    </div>
+                                    <div class="invalid-feedback">Как зовут вашего котика? (Нужно для ласки)</div>
+                                </div>
+                                <!-- Кнопка отправки -->
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg py-2">
+                                        <i class="bi bi-send-check"></i> Отправить заявку
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- Сообщение об успехе (скрыто по умолчанию) -->
+                            <div id="formSuccess" class="alert alert-success mt-4 d-none" role="alert">
+                                <i class="bi bi-emoji-wink"></i> Спасибо! Мы свяжемся с вами в ближайшее время.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Кнопка "Назад" внизу формы по требованию ТЗ -->
+                    <div class="text-center mt-4">
+                        <a href="#" class="text-decoration-none" onclick="history.back(); return false;"><i class="bi bi-arrow-left"></i> Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Подвал -->
+<footer class="py-4 bg-dark text-white-50">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                © 2023 Котокудия. Мультимедиа с любовью 🎵.
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <i class="bi bi-instagram me-3"></i>
+                <i class="bi bi-telegram me-3"></i>
+                <i class="bi bi-cup-hot"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Скрипты Bootstrap и валидация формы (HTML / JS) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    (function () {
+        'use strict'
+        // Валидация Bootstrap + дополнительная обработка
+        var form = document.getElementById('bookingForm')
+        var successAlert = document.getElementById('formSuccess')
+        
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            } else {
+                event.preventDefault() // Отменяем реальную отправку на сервер (демо)
+                // Показываем сообщение об успехе вместо отправки
+                successAlert.classList.remove('d-none')
+                form.reset()
+                form.classList.remove('was-validated')
+                // Прокрутка к сообщению
+                successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+                // Скрываем через 5 сек
+                setTimeout(() => successAlert.classList.add('d-none'), 5000)
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })()
+</script>
+<!-- Небольшой js для плавного скролла к якорям (Bootstrap не всегда учитывает смещение фикс. меню) -->
+<script>
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const hash = this.getAttribute('href');
+            if (hash && hash.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(hash);
+                if (target) {
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 70;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            }
+        });
+    });
+</script>
+</body>
+  </html>
